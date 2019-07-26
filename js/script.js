@@ -3,45 +3,82 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
+//create array of quotes
 
+var quotes = [
+  {
+    quote:
+      '"What would America be like if we loved black people as much as we love black culture?"',
+    source: "Amandla Stenberg",
+    citation: "Don't Cash Crop My Cornrows, YouTube",
+    year: "",
+    category: "cultural appropriation"
+  },
+  {
+    quote:
+      '"Where justice is denied, where poverty is enforced, where ignorance prevails, and where any one class is made to feel that society is in an organized conspiracy to oppress, rob, and degrade them, neither persons nor property will be safe"',
+    source: "Frederick Douglass",
+    citation: "",
+    year: "1886",
+    category: "liberation"
+  },
+  {
+    quote:
+      '"I am an invisible man...I am a man of substance, of flesh and bone, fiber and liquids—and I might even be said to possess a mind. I am invisible, understand, simply because people refuse to see me."',
+    source: "Ralph Ellison",
+    citation: "Invisible Man",
+    year: "1952",
+    category: "oppression"
+  },
+  {
+    quote:
+      '"Oppressive language does more than represent violence; it is violence; does more than represent the limits of knowledge; it limits knowledge."',
+    source: "Toni Morrison",
+    citation: "Nobel lecture",
+    year: "1993",
+    category: "oppression"
+  },
+  {
+    quote:
+      '"Ignorance, allied with power, is the most ferocious enemy justice can have"',
+    source: "James Baldwin",
+    citation: "No Name in the Street",
+    year: "1972",
+    category: "oppression"
+  }
+];
 
-/*** 
-  Create the array of quote objects and name it `quotes`.
-  Add at least five quote objects to the `quotes` array.
-  Give each quote object a `quote` and `source` property.
-  Add the `citation` property to at least one object in the array.
-  Add the `year` property to at least one object in the array.
-  Use console.log() to log your array of quotes to the console.
-***/
+//create function to return random quote from quotes array
 
+function getRandomQuote() {
+  return quotes[Math.floor(Math.random() * quotes.length)];
+}
 
+//create function to print quote to the screen
 
+function printQuote() {
+  var randomQuote = getRandomQuote();
 
-/***
-  Create the `getRandomQuote` function to:
-   - Create a variable to store a random number 
-   - Cse the random number to `return` a random quote object from the `quotes` array.
-***/
+  //build html string
 
+  var htmlString = "";
+  htmlString += '<p class="quote">' + randomQuote.quote + "</p>";
+  htmlString += '<p class="source">' + randomQuote.source;
 
+  if (randomQuote.citation) {
+    htmlString += '<span class="citation">' + randomQuote.citation + "</span>";
+  }
 
+  if (randomQuote.year) {
+    htmlString += '<span class="year">' + randomQuote.year + "</span>";
+  }
 
-/***
-  Create the `printQuote` function to: 
-   - Call the `getRandomQuote` function and assign it to a variable.
-   - Create a variable for the HTML string and set it equal to an empty string.
-   - Use the HTML template in the instructions or the markup in the index.html file, AND 
-     the random quote vairable to build your HTML string.
-   - Add the quote and source section to the HTML string.
-   - Use an if statement to check for the citation property before adding it to the HTML string.
-   - Use an if statement to check for the year property before adding it to the HTML string.
-   - Don't forget to close that final `p` tag.
-   - Set the `innerHTML` of the `quote-box` div to the HTML string. 
-***/
+  // if (randomQuote.category) {
+  //   htmlString += <span class="category"> + "tag: " + randomQuote.category </span>
+  // }
 
-
-
+  htmlString += "</p>";
+}
 
 /***
   When the "Show another quote" button is clicked, the event listener 
@@ -50,7 +87,8 @@ project 1 - A Random Quote Generator
   comment.
 ***/
 
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
+document
+  .getElementById("loadQuote")
+  .addEventListener("click", printQuote, false);
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.

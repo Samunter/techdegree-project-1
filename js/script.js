@@ -47,7 +47,7 @@ var quotes = [
 ];
 
 //create array of hex colors
-var colors = ['#b30086', '#b300b3', '#009999', '#0000ff', '#cc99ff'];
+var colors = ['#b30086', '#b300b3', '#009999', '#003399', '#cc99ff'];
 
 //create function to return random quote from quotes array
 function getRandomQuote() {
@@ -59,7 +59,7 @@ function getRandomColor() {
   return colors[Math.floor(Math.random() * quotes.length)];
 }
 
-//create function to print quote to the screen
+//create function to print quote to the screen and change background and button color
 function printQuote() {
   var randomQuote = getRandomQuote();
 
@@ -83,7 +83,7 @@ function printQuote() {
 
   htmlString += '</p>';
 
-  //set html of div with id "quote-box" as the htmlString
+  //set quote-box div's html to htmlString
   document.getElementById('quote-box').innerHTML = htmlString;
 
   //set background and button to random color

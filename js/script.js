@@ -34,7 +34,7 @@ var quotes = [
     source: 'Toni Morrison',
     citation: 'Nobel lecture',
     year: '1993',
-    category: 'oppression'
+    category: ''
   },
   {
     quote:
